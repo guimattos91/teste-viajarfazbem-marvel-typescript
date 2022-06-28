@@ -1,3 +1,5 @@
+// ESLint Rules: https://eslint.org/docs/latest/rules
+
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -12,11 +14,15 @@ module.exports = {
     react: {
       version: 'detect',
     },
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     'import/resolver': {
       node: {
         paths: ['src'],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
+      typescript: {},
     },
   },
   env: {
@@ -25,20 +31,62 @@ module.exports = {
     node: true,
   },
   extends: [
-    'eslint:recommended',
     'plugin:react/recommended',
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended', // Make sure this is always the last element in the array.
   ],
-  plugins: ['simple-import-sort', 'prettier'],
+  plugins: [
+    'react',
+    'react-hooks',
+    'import',
+    '@typescript-eslint',
+    'eslint-plugin-import-helpers',
+    'prettier',
+  ],
   rules: {
-    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/explicit-function-return-type': [
+      'error',
+      {
+        allowExpressions: true,
+      },
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'import-helpers/order-imports': [
+      'warn',
+      {
+        newlinesBetween: 'always',
+        groups: [
+          '/^react$/',
+          'module',
+          '/^assets/',
+          '/^components/',
+          '/^helpers/',
+          '/^hooks/',
+          '/^pages/',
+          '/^services/',
+          '/^styles/',
+          '/^@types/',
+          [('parent', 'sibling', 'index')],
+        ],
+        alphabetize: {
+          order: 'asc',
+          ignoreCase: true,
+        },
+      },
+    ],
+    'import/no-unresolved': 'error',
+    'import/prefer-default-export': 'off',
     'jsx-a11y/accessible-emoji': 'off',
-    'react/prop-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
@@ -47,5 +95,23 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
+    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'react/function-component-definition': [
+      1,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.tsx'],
+      },
+    ],
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
 };

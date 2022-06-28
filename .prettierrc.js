@@ -1,28 +1,26 @@
-module.exports = {
-  semi: true,
-  trailingComma: 'all',
-  singleQuote: true,
-  printWidth: 90,
-  tabWidth: 2,
-  endOfLine: 'auto',
-};
+// Prettier Configuration Docs: https://prettier.io/docs/en/options.html
 
-// {
-//   "arrowParens": "always",
-//   "bracketSpacing": true,
-//   "embeddedLanguageFormatting": "auto",
-//   "htmlWhitespaceSensitivity": "css",
-//   "insertPragma": false,
-//   "jsxBracketSameLine": false,
-//   "jsxSingleQuote": false,
-//   "proseWrap": "preserve",
-//   "quoteProps": "as-needed",
-//   "requirePragma": false,
-//   "semi": true,
-//   "singleQuote": false,
-//   "tabWidth": 2,
-//   "trailingComma": "es5",
-//   "useTabs": false,
-//   "vueIndentScriptAndStyle": false,
-//   "printWidth": 100
-// }
+module.exports = {
+  singleQuote: true,
+  trailingComma: 'all',
+//  arrowParens: 'always',
+//  bracketSameLine: false,
+//  bracketSpacing": true,
+//  endOfLine: 'lf',
+//  embeddedLanguageFormatting: 'auto',
+//  htmlWhitespaceSensitivity: 'css',
+//  insertPragma: false,
+//  jsxSingleQuote: false,
+//  printWidth: 80,
+//  proseWrap: 'preserve',
+//  quoteProps: 'as-needed',
+//  rangeStart: 0,
+//  rangeEnd: Infinity,
+//  requirePragma: false,
+//  semi: true,
+//  singleAttributePerLine: false,
+//  tabWidth: 2,
+//  trailingComma: 'es5',
+//  useTabs: false,
+//  vueIndentScriptAndStyle: false,
+};
