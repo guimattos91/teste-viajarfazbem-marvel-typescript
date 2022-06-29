@@ -4,14 +4,16 @@ A starter for React with Typescript with the fast Vite and all static code testi
 
 ## Installation & run
 
-1) Install `Eslint` extension for VS Code.
+1. Install `Eslint` extension for VS Code.
 
-2) Clone the repo and run:
+2. Clone the repo and run:
+
 ```
 yarn
 ```
 
-3) Then:
+3. Then:
+
 ```
 yarn dev
 ```
