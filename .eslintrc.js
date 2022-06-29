@@ -73,6 +73,7 @@ module.exports = {
           '/^helpers/',
           '/^hooks/',
           '/^pages/',
+          '/^Routes/',
           '/^services/',
           '/^styles/',
           '/^@types/',

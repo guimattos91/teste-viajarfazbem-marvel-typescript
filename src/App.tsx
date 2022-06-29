@@ -1,5 +1,5 @@
-const App: React.FC = () => {
-  return <h1>My React App</h1>;
-};
+import Routes from 'Routes';
+
+const App: React.FC = () => <Routes />;
 
 export default App;
