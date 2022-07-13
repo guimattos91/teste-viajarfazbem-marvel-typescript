@@ -1,15 +1,17 @@
-/* eslint-disable camelcase */
 import { createContext, useContext, useMemo } from 'react';
 
 interface IContextProps {
   something: string;
 }
+interface IMyCustomProviderProps {
+  children: React.ReactNode;
+}
 
 export const ReactContext = createContext<IContextProps>({} as IContextProps);
 
-export const MyCustomProvider: React.FC<{
-  children: React.ReactNode;
-}> = ({ children }) => {
+export const MyCustomProvider: React.FC<IMyCustomProviderProps> = ({
+  children,
+}) => {
   return (
     <ReactContext.Provider
       value={useMemo(

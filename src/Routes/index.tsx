@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom';
 
 import Home from 'pages/Home';
@@ -14,4 +16,4 @@ const Routes: React.FC = () => {
   );
 };
 
-export default Routes;
+export default memo(Routes);

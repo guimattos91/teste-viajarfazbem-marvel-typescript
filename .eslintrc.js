@@ -77,6 +77,7 @@ module.exports = {
           '/^Routes/',
           '/^services/',
           '/^styles/',
+          '/^types/',
           '/^@types/',
           [('parent', 'sibling', 'index')],
         ],
