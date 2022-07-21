@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { ViteWebfontDownload } from 'vite-plugin-webfont-dl';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
@@ -21,5 +22,6 @@ export default defineConfig({
       types: path.resolve(__dirname, './src/types'),
     },
   },
-  plugins: [react()],
+  // https://vitejs.dev/plugins/
+  plugins: [react(), ViteWebfontDownload()],
 });
