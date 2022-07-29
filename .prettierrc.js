@@ -1,12 +1,10 @@
 // Prettier Configuration Docs: https://prettier.io/docs/en/options.html
 
 module.exports = {
-  singleQuote: true,
-  trailingComma: 'all',
   //  arrowParens: 'always',
   //  bracketSameLine: false,
   //  bracketSpacing": true,
-  //  endOfLine: 'lf',
+  endOfLine: 'lf',
   //  embeddedLanguageFormatting: 'auto',
   //  htmlWhitespaceSensitivity: 'css',
   //  insertPragma: false,
@@ -19,8 +17,9 @@ module.exports = {
   //  requirePragma: false,
   //  semi: true,
   //  singleAttributePerLine: false,
+  singleQuote: true,
   //  tabWidth: 2,
-  //  trailingComma: 'es5',
+  trailingComma: 'all',
   //  useTabs: false,
   //  vueIndentScriptAndStyle: false,
 };

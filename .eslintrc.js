@@ -98,7 +98,11 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
-    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'prettier/prettier': [
+      'error',
+      { endOfLine: 'auto' },
+      { usePrettierrc: true },
+    ],
     'react/function-component-definition': [
       1,
       {
@@ -115,6 +119,7 @@ module.exports = {
       },
     ],
     'react/prop-types': 'off',
+    'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
   },
 };
