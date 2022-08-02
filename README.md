@@ -47,10 +47,12 @@ Solution: Use Node.js v16
 ### Error: Command failed: node /path/to/project/node_modules/esbuild/bin/esbuild --version dyld: Symbol not found: _SecTrustEvaluateWithError
 
 Solution:
-- Stop using `npm` or `yarn` for this project;
-- Install [pnpm](https://pnpm.io);
-- Remove the `node_modules` folder;
-- Add the following to `package.json`:
+- Stop using `npm` or `yarn` for this project
+- Install [pnpm](https://pnpm.io)
+- Remove `node_modules`
+- Remove `yarn.lock` (if exists)
+- Remove `package-lock.json` (if exists)
+- Add the following to `package.json`
 
 ```
 "devDependencies": 
