@@ -7,6 +7,7 @@ A starter for React with Typescript with the fast Vite and all static code testi
 1. Install [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) extensions for VS Code. **Do not install the Prettier extension**
 
 2. Add these configs to VS Code settings:
+
 ```
 "[javascript]": {
     "editor.defaultFormatter": null,
@@ -29,9 +30,11 @@ A starter for React with Typescript with the fast Vite and all static code testi
 ```
 cp .env.example .env
 ```
+
 ```
 yarn
 ```
+
 ```
 yarn dev
 ```
@@ -55,22 +58,24 @@ Solution:
 - Add the following to `package.json`
 
 ```
-"devDependencies": 
-    "esbuild-wasm":"latest", 
+"devDependencies":
+    "esbuild-wasm":"latest",
 },
 "pnpm":{
     "overrides":{
-        "esbuild":"npm:esbuild-wasm@latest" 
+        "esbuild":"npm:esbuild-wasm@latest"
     }
 },
 ```
 
 Download the dependencies:
+
 ```
 pnpm i
 ```
 
 Run the project:
+
 ```
 pnpm run dev
 ```
