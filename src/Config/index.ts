@@ -1,5 +1,11 @@
 const Config = {
-  appName: import.meta.env.VITE_APP_NAME ?? 'My React App',
+  app: { name: import.meta.env.VITE_APP_NAME },
+  i18n: {
+    debbug: JSON.parse(
+      (import.meta.env.VITE_I18N_DEBBUG ?? 'false').toLocaleLowerCase(),
+      // Converts 'true' to true and 'false'to 'false'
+    ),
+  },
 };
 
 export default Config;

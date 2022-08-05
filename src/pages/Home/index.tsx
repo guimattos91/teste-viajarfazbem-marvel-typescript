@@ -1,16 +1,26 @@
 import { memo, useEffect } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
+import LanguageSwitcher from 'components/LanguageSwitcher';
+
 import useTitle from 'hooks/useTitle';
 
 const Home: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const setTitle = useTitle();
 
   useEffect(() => {
-    setTitle('Home');
+    setTitle(t('home.head-title'));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [i18n.resolvedLanguage]);
 
-  return <h1>My React App</h1>;
+  return (
+    <>
+      <h1>{t('home.title')}</h1>
+      <LanguageSwitcher />
+    </>
+  );
 };
 
 export default memo(Home);
