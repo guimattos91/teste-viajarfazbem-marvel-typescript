@@ -3,6 +3,7 @@ import { createContext, useContext, useMemo } from 'react';
 interface IContextProps {
   something: string;
 }
+
 interface IMyCustomProviderProps {
   children: React.ReactNode;
 }
@@ -30,7 +31,8 @@ export const useMyCustomHook = (): IContextProps => {
   const context = useContext(ReactContext);
 
   if (!context) {
-    throw new Error('useMyCustomHook must be within MyCustomProvider');
+    // eslint-disable-next-line no-console
+    console.error('useMyCustomHook must be within MyCustomProvider');
   }
 
   return context;
