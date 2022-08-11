@@ -1,5 +1,8 @@
 const Config = {
-  app: { name: import.meta.env.VITE_APP_NAME },
+  app: {
+    name: import.meta.env.VITE_APP_NAME,
+    version: import.meta.env.PACKAGE_VERSION,
+  },
   i18n: {
     debbug: JSON.parse(
       (import.meta.env.VITE_I18N_DEBBUG ?? 'false').toLocaleLowerCase(),

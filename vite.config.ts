@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig, loadEnv } from 'vite';
+import loadVersion from 'vite-plugin-package-version';
 import { ViteWebfontDownload } from 'vite-plugin-webfont-dl';
 
 import htmlPlugin from './htmlPlugin';
@@ -26,5 +27,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   // https://vitejs.dev/plugins/
-  plugins: [htmlPlugin(loadEnv(mode, '.')), react(), ViteWebfontDownload()],
+  plugins: [
+    htmlPlugin(loadEnv(mode, '.')),
+    react(),
+    loadVersion(),
+    ViteWebfontDownload(),
+  ],
 }));
