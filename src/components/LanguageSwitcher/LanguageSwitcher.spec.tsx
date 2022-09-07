@@ -1,13 +1,15 @@
 import { render, cleanup } from '@testing-library/react'
-// import userEvent from '@testing-library/user-event'
+import userEvent from '@testing-library/user-event'
 import { expect, describe, it, vi, afterEach } from 'vitest'
 
 import LanguageSwitcher from './LanguageSwitcher'
 
+const mockedChangeLanguage = vi.fn()
+
 vi.mock('react-i18next', () => ({
-  useTranslation: vi.fn().mockReturnValue({
+  useTranslation: () => ({
     i18n: {
-      changeLanguage: vi.fn(),
+      changeLanguage: mockedChangeLanguage,
     },
   }),
 }))
@@ -25,12 +27,12 @@ describe('LanguageSwitcher', () => {
     expect(buttonPtBr).toBeTruthy()
   })
 
-  // it('should call a function on click on each button', () => {
-  //   const { getByTestId } = render(<LanguageSwitcher />)
+  it('should call a function when clicking on each language button', async () => {
+    const { getByTestId } = render(<LanguageSwitcher />)
 
-  //   const buttonEn = getByTestId('language-switcher-en-button')
-  //   userEvent.click(buttonEn)
+    const buttonEn = getByTestId('language-switcher-en-button')
+    await userEvent.click(buttonEn)
 
-  //   // TODO: implement expect
-  // })
+    expect(mockedChangeLanguage).toHaveBeenCalledWith('en')
+  })
 })
