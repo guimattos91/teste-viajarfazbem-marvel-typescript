@@ -1,1 +1,1 @@
-export const myCustomHelper = (): null => null;
+export const myCustomHelper = (): null => null

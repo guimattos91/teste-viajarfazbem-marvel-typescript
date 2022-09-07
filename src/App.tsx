@@ -1,7 +1,7 @@
-import { memo } from 'react';
+import { memo } from 'react'
 
-import Routes from 'Routes';
+import Routes from 'Routes'
 
-const App: React.FC = () => <Routes />;
+const App: React.FC = () => <Routes />
 
-export default memo(App);
+export default memo(App)

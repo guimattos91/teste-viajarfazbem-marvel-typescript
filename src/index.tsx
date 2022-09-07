@@ -1,10 +1,10 @@
-import React, { Suspense } from 'react';
+import React, { Suspense } from 'react'
 
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom/client'
 
-import 'services/i18n';
+import 'services/i18n'
 
-import App from './App';
+import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -12,4 +12,4 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <App />
     </Suspense>
   </React.StrictMode>,
-);
+)

@@ -15,11 +15,11 @@ module.exports = {
   //  rangeStart: 0,
   //  rangeEnd: Infinity,
   //  requirePragma: false,
-  //  semi: true,
+  semi: false,
   //  singleAttributePerLine: false,
   singleQuote: true,
   //  tabWidth: 2,
   trailingComma: 'all',
   //  useTabs: false,
   //  vueIndentScriptAndStyle: false,
-};
+}
