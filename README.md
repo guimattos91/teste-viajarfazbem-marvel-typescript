@@ -1,6 +1,6 @@
-# Vite + React + Typescript + Eslint + Prettier + EditorConfig
+# Vite + React + Typescript + Vitest + Eslint + Prettier + EditorConfig
 
-A starter for React with Typescript with the fast Vite and all static code testing with Eslint and formatting with Prettier and EditorConfig.
+A starter for React with Typescript with the blazing fast Vite, strong Vitest framework and all static code testing with Eslint and formatting with Prettier and EditorConfig.
 
 ## Installation & run
 
@@ -37,6 +37,11 @@ yarn
 
 ```
 yarn dev
+```
+
+## Test
+```
+yarn test
 ```
 
 ## Troubleshooting
