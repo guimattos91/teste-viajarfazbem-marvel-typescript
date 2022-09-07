@@ -8,6 +8,10 @@ import htmlPlugin from './htmlPlugin'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // https://vitest.dev/guide
+  test: {
+    environment: 'jsdom',
+  },
   // https://vitejs.dev/plugins/
   plugins: [
     tsconfigPaths(),

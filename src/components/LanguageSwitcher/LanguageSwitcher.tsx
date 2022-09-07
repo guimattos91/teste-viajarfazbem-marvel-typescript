@@ -1,19 +1,32 @@
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
 const LanguageSwitcher: React.FC = () => {
   const { i18n } = useTranslation()
 
+  const handleChangeLanguage = useCallback(
+    (lng: string) => i18n.changeLanguage(lng),
+    [i18n],
+  )
+
   return (
     <div>
-      <button type="button" onClick={() => i18n.changeLanguage('en')}>
+      <button
+        data-testid="language-switcher-en-button"
+        type="button"
+        onClick={() => handleChangeLanguage('en')}
+      >
         en
       </button>
-      <button type="button" onClick={() => i18n.changeLanguage('pt-BR')}>
+      <button
+        data-testid="language-switcher-pt-br-button"
+        type="button"
+        onClick={() => handleChangeLanguage('pt-BR')}
+      >
         pt-BR
       </button>
-      <p>{i18n.resolvedLanguage}</p>
+      <p>{i18n.language}</p>
     </div>
   )
 }
