@@ -15,6 +15,6 @@ const Config = {
       // Converts 'true' to true and 'false'to 'false'
     ),
   },
-}
+};
 
-export default Config
+export default Config;

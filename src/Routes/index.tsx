@@ -2,6 +2,10 @@ import { memo } from 'react'
 
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
 
+import Character from 'pages/Character'
+import Characters from 'pages/Characters'
+import Comic from 'pages/Comic'
+import Comics from 'pages/Comics'
 import Home from 'pages/Home'
 import NotFound from 'pages/NotFound'
 
@@ -10,6 +14,10 @@ const Routes: React.FC = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" element={<Home />} />
+        <Route path="/characters" element={<Characters />} />
+        <Route path="/comics" element={<Comics />} />
+        <Route path="/characters/:id/:name" element={<Character />} />
+        <Route path="/comic/:id/:title" element={<Comic />} />
         <Route path="*" element={<NotFound />} />
       </Switch>
     </BrowserRouter>
