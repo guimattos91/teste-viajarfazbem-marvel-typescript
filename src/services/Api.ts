@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from 'axios'
 
-import Config from 'Config';
+import Config from 'Config'
 
 const Api = axios.create({
   baseURL: Config.api.baseUrl,
-});
+})
 
 Api.interceptors.request.use((config) => {
   return {
@@ -15,7 +15,7 @@ Api.interceptors.request.use((config) => {
       apikey: Config.api.key,
       hash: Config.api.hash,
     },
-  };
-});
+  }
+})
 
-export default Api;
+export default Api

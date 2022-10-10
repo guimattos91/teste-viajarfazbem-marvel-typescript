@@ -1,26 +1,26 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react'
 
-import { Col, Container, Row, Spinner } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Col, Container, Row, Spinner } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-import BannerImage from 'assets/Banner.jpeg';
-import CharactersBanner from 'assets/characters.png';
-import ComicBanner from 'assets/comics.png';
+import BannerImage from 'assets/Banner.jpeg'
+import CharactersBanner from 'assets/characters.png'
+import ComicBanner from 'assets/comics.png'
 
-import CharacterCard from 'components/CharacterCard';
-import Footer from 'components/Footer';
-import Header from 'components/Header';
+import CharacterCard from 'components/CharacterCard'
+import Footer from 'components/Footer'
+import Header from 'components/Header'
 
-import Api from 'services/Api';
+import Api from 'services/Api'
 
-import { MainStyle } from 'styles/Main';
+import { MainStyle } from 'styles/Main'
 
-import { CharacterType } from 'types/CharacterType';
+import { CharacterType } from 'types/CharacterType'
 // useState(Array(count).fill(null))
 
 const Home: React.FC = () => {
-  const [characters, setCharacters] = useState<CharacterType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [characters, setCharacters] = useState<CharacterType[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const fetchCharacters = useCallback(async () => {
     try {
@@ -28,19 +28,19 @@ const Home: React.FC = () => {
         data: {
           data: { results },
         },
-      } = await Api.get('/characters');
-      setCharacters(results);
+      } = await Api.get('/characters')
+      setCharacters(results)
     } catch {
-      <p>x</p>;
+      ;<p>x</p>
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    fetchCharacters();
+    fetchCharacters()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   return (
     <>
@@ -88,7 +88,7 @@ const Home: React.FC = () => {
       </MainStyle>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default memo(Home);
+export default memo(Home)

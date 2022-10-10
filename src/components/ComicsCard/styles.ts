@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 export const CardBody = styled.div`
   flex: flex;
@@ -8,7 +8,7 @@ export const CardBody = styled.div`
   &:hover {
     border-color: #fa2d01;
   }
-`;
+`
 
 export const RatioDiv = styled.div`
   position: relative;
@@ -19,7 +19,7 @@ export const RatioDiv = styled.div`
     padding-top: 150%;
     content: '';
   }
-`;
+`
 
 export const PLink = styled(Link)`
   color: white;
@@ -31,7 +31,7 @@ export const PLink = styled(Link)`
     color: #fa2d01;
     text-decoration: none;
   }
-`;
+`
 export const DivImage = styled.img`
   width: 14rem;
-`;
+`

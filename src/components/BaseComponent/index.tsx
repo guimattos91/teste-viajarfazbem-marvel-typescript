@@ -1,11 +1,11 @@
-import { memo } from 'react';
+import { memo } from 'react'
 
 interface IBaseComponentProps {
-  children?: React.ReactNode;
+  children?: React.ReactNode
 }
 
 const BaseComponent: React.FC<IBaseComponentProps> = ({ children }) => {
-  return <div>{children}</div>;
-};
+  return <div>{children}</div>
+}
 
-export default memo(BaseComponent);
+export default memo(BaseComponent)

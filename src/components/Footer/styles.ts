@@ -1,5 +1,5 @@
-import { Col } from 'react-bootstrap';
-import styled from 'styled-components';
+import { Col } from 'react-bootstrap'
+import styled from 'styled-components'
 
 export const EmailDiv = styled.div`
   border-radius: 50px;
@@ -14,7 +14,7 @@ export const EmailDiv = styled.div`
   &:hover {
     border-color: #fa2d01;
   }
-`;
+`
 
 export const Buttonmail = styled.button`
   border-radius: 50%;
@@ -28,11 +28,11 @@ export const Buttonmail = styled.button`
   flex: flex;
   border: none;
   color: #fff;
-`;
+`
 
 export const InputEmail = styled.input`
   border-style: none;
-`;
+`
 
 export const StyleFooter = styled.footer`
   font-family: 'Bebas Neue', cursive;
@@ -40,7 +40,7 @@ export const StyleFooter = styled.footer`
   color: #fff;
   flex: flex;
   flex-wrap: wrap;
-`;
+`
 
 export const UlStyled = styled.ul`
   flex: flex;
@@ -51,9 +51,9 @@ export const UlStyled = styled.ul`
     color: #ffffff;
     text-align: center;
   }
-`;
+`
 
 export const ColCards = styled(Col)`
   flex: flex;
   justify-content: center;
-`;
+`
