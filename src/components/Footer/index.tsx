@@ -17,7 +17,7 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <StyleFooter className="pt-5">
+    <StyleFooter className="py-5">
       <Container>
         <Row className="row-cols-1 row-cols-md-3 row-cols-lg-4">
           <ColCards>

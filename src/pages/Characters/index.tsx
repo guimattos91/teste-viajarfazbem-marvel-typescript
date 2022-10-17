@@ -6,6 +6,8 @@ import { Col, Container, Row, Spinner } from 'react-bootstrap'
 
 import { BsSearch } from 'react-icons/bs'
 
+import Jarvis from 'assets/jarvis2.png'
+
 import { useCharacters } from 'context/CharactersContext'
 
 import CharacterCard from 'components/CharacterCard'
@@ -19,7 +21,14 @@ import { Pagination } from 'styles/Pagination'
 
 import { ThumbnailType } from 'types/CharacterType'
 
-import { ButtonStyle, ColCards, InputStyle, TitleH1, TitleH2 } from './styles'
+import {
+  ButtonBack,
+  ButtonStyle,
+  ColCards,
+  InputStyle,
+  StyledP,
+  TitleH1,
+} from './styles'
 
 const CharactersPage: React.FC = () => {
   const {
@@ -41,6 +50,8 @@ const CharactersPage: React.FC = () => {
     () => fetchCharacters(1, search),
     [fetchCharacters, search],
   )
+
+  const clearSearch = useCallback(() => fetchCharacters(1), [fetchCharacters])
 
   const setTitle = useTitle()
   useEffect(() => setTitle('Characters'))
@@ -73,7 +84,7 @@ const CharactersPage: React.FC = () => {
               <TitleH1 className="p-3">Characters</TitleH1>
             </Col>
           </Row>
-          <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+          <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 justify-content-center">
             {isLoading && (
               <div className="text-center">
                 <Spinner animation="border" variant="danger" />
@@ -94,7 +105,22 @@ const CharactersPage: React.FC = () => {
                 ),
               )}
             {!isLoading && !error && characters.length === 0 && (
-              <TitleH2>Nenhum resultado encontrado</TitleH2>
+              <>
+                <img
+                  src={Jarvis}
+                  alt="Personagem Não Encontrado"
+                  style={{ width: `100%`, height: `auto` }}
+                />
+                <div className="d-flex flex-column align-items-center justify-content-center py-3">
+                  <ButtonBack
+                    className="mb-3"
+                    type="button"
+                    onClick={clearSearch}
+                  >
+                    <StyledP className="px-4 py-2">Voltar</StyledP>
+                  </ButtonBack>
+                </div>
+              </>
             )}
           </Row>
           <Row>
