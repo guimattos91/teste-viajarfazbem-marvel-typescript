@@ -19,7 +19,11 @@ import useTitle from 'hooks/useTitle'
 import { MainStyle } from 'styles/Main'
 import { Pagination } from 'styles/Pagination'
 
-import { EventType, ThumbnailType } from 'types/CharacterType'
+import {
+  ComicCharacterType,
+  EventType,
+  ThumbnailType,
+} from 'types/CharacterType'
 
 import {
   ButtonBack,
@@ -99,6 +103,7 @@ const CharactersPage: React.FC = () => {
                   thumbnail: ThumbnailType
                   description: string
                   events: EventType
+                  comics: ComicCharacterType
                 }) => (
                   <ColCards key={character.id} className="d-flex">
                     <CharacterCard character={character} />
