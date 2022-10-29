@@ -1,3 +1,4 @@
+import { Ratio } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -16,8 +17,45 @@ export const PLink = styled(Link)`
     }
   }
 `
+export const DivRatio = styled(Ratio)`
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 20%,
+    100% 80%,
+    80% 100%,
+    20% 100%,
+    0 100%,
+    0% 20%
+  );
+`
 
 export const CardBody = styled.div`
+  background-color: #fff;
+  border-style: solid none none none;
+  border-color: #fa2d01;
+  border-width: large;
+  flex: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 20%,
+    100% 60%,
+    80% 100%,
+    20% 100%,
+    0 100%,
+    0% 20%
+  );
+
+  &:hover {
+    background-color: #fa2d01;
+    color: #fff;
+    transition: transform 1s linear;
+  }
+`
+export const Cardlov = styled.div`
   background-color: #fff;
   border-style: solid none none none;
   border-color: #fa2d01;

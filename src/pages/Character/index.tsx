@@ -14,7 +14,15 @@ import useTitle from 'hooks/useTitle'
 
 import { MainStyle } from 'styles/Main'
 
-import { BlurDiv, H1White, H2White, PWhite } from './styles'
+import {
+  BlurDiv,
+  DivRatio,
+  H1White,
+  H2White,
+  H3White,
+  PWhite,
+  RowStyled,
+} from './styles'
 
 const Character: React.FC = () => {
   const { character, isLoading, error, fetchCharacter } = useCharacters()
@@ -46,21 +54,99 @@ const Character: React.FC = () => {
                 height: '50vh',
               }}
             >
-              <BlurDiv className="d-flex align-items-end">
-                <Container>
-                  <Row className="row-cols-1 row-cols-md-2">
-                    <Col>
-                      <H1White className="d-flex align-self-center">
-                        {character?.name ?? 'Loading...'}
-                      </H1White>
-                      <PWhite>{character.description}</PWhite>
-                    </Col>
-                  </Row>
-                </Container>
-              </BlurDiv>
+              <BlurDiv className="d-flex align-items-end" />
             </div>
             <Container>
-              <Row className="pt-5">
+              <Row className="row-cols-1 row-cols-md-2">
+                <Col>
+                  <DivRatio
+                    aspectRatio="1x1"
+                    style={{
+                      backgroundImage: `url(${getImageUrl(
+                        character.thumbnail,
+                      )})`,
+                      backgroundSize: 'cover',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'center center',
+                    }}
+                  >
+                    <div />
+                  </DivRatio>
+                </Col>
+                <Col className="pt-4">
+                  {character?.name && (
+                    <H1White className="d-flex align-self-center">
+                      {character.name}
+                    </H1White>
+                  )}
+                  {!character?.name && (
+                    <H1White className="d-flex align-self-center">
+                      Nome não encontrado
+                    </H1White>
+                  )}
+                  {character.description && (
+                    <PWhite className="ms-3">{character.description}</PWhite>
+                  )}
+                  {!character.description && (
+                    <PWhite className="ms-3">
+                      Esse Personagem ainda não possui descrição
+                    </PWhite>
+                  )}
+                  {character.events.items.length >= 1 && (
+                    <>
+                      <H2White className="d-flex mt-5">
+                        Events of this Character
+                      </H2White>
+                      <div className="d-flex flex-wrap">
+                        {character.events.items.map(
+                          (event: {
+                            resourceURI: string
+                            name: string
+                            type: string
+                          }) => (
+                            <PWhite className="mx-3">{event.name}</PWhite>
+                          ),
+                        )}
+                      </div>
+                    </>
+                  )}
+                </Col>
+              </Row>
+              <RowStyled>
+                <Col className="my-5">
+                  {character.events.items.length >= 1 && (
+                    <>
+                      <div className="d-flex justify-content-center">
+                        <H2White className="d-flex">Want to know more?</H2White>
+                      </div>
+                      <PWhite className="text-center">
+                        Checkout the comics this character appears
+                      </PWhite>
+                      <div className="d-flex justify-content-center flex-wrap">
+                        {character.comics.items.map(
+                          (event: {
+                            resourceURI: string
+                            name: string
+                            type: string
+                          }) => (
+                            <H3White className="px-5 pt-4">
+                              {event.name}
+                            </H3White>
+                          ),
+                        )}
+                      </div>
+                    </>
+                  )}
+                  {!isLoading &&
+                    !error &&
+                    character.events.items.length === 0 && (
+                      <PWhite className="d-flex flex-column align-items-center justify-content-center py-3">
+                        Working on this characters event
+                      </PWhite>
+                    )}
+                </Col>
+              </RowStyled>
+              <Row className="mt-3">
                 <Col>
                   <H2White className=" pt-5 d-flex justify-content-center text-align-center">
                     Checkout Our Next Movie

@@ -57,19 +57,26 @@ const Comic: React.FC = () => {
           >
             <BlurDiv>
               <Container>
-                <Row className="pt-5 d-inline-flex justify-content-between">
+                <Row className="pt-5">
                   <Col>
                     <ImgStyled
                       src={getImageUrl(comic.thumbnail)}
                       alt={comic?.title}
                     />
+                    <PStyled>ID: {comic.id}</PStyled>
                   </Col>
                   <Col className="col-8">
                     <H1White>{comic?.title ?? 'Loading...'}</H1White>
-                    <PStyled>ID: {comic.id}</PStyled>
-                    <PStyleLarger className="pt-5">
-                      {comic.description}
-                    </PStyleLarger>
+                    {comic.description && (
+                      <PStyleLarger className="pt-5">
+                        {comic.description}
+                      </PStyleLarger>
+                    )}
+                    {!comic.description && (
+                      <PStyleLarger className="pt-5">
+                        Theres is no description for this comic book
+                      </PStyleLarger>
+                    )}
                   </Col>
                 </Row>
               </Container>

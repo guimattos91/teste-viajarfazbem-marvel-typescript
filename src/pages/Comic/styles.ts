@@ -27,5 +27,5 @@ export const PStyleLarger = styled.p`
 `
 
 export const ImgStyled = styled.img`
-  width: 20rem;
+  width: 25rem;
 `
