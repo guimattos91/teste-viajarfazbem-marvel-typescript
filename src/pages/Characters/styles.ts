@@ -35,9 +35,12 @@ export const InputStyle = styled.input`
   }
 `
 export const ButtonStyle = styled.button`
-  background-color: transparent;
+  background-color: #fa2d01;
   border: none;
-  border-bottom: 2px solid #fa2d01;
+  color: white;
+  flex: flex;
+  padding: 2px 15px;
+  clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
 `
 export const ButtonBack = styled.button`
   background-color: #fa2d01;

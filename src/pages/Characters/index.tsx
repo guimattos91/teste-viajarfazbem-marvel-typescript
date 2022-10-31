@@ -2,9 +2,8 @@ import { memo, useCallback, useEffect, useState } from 'react'
 
 // eslint-disable-next-line import-helpers/order-imports
 import { Col, Container, Row, Spinner } from 'react-bootstrap'
-// import ReactPaginate from 'react-paginate';
 
-import { BsSearch } from 'react-icons/bs'
+// import { BsSearch } from 'react-icons/bs'
 
 import Jarvis from 'assets/jarvis2.png'
 
@@ -71,21 +70,28 @@ const CharactersPage: React.FC = () => {
       <MainStyle>
         <Container>
           <Row className="pt-4">
-            <Col className="d-flex justify-content-center">
+            <Col className="d-flex justify-content-center flex-wrap">
               <InputStyle
                 type="text"
                 placeholder="Buscar"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <ButtonStyle type="button" onClick={handleSearch}>
-                <BsSearch color="#fa2d01" />
-              </ButtonStyle>
+              <div className="my-4 my-md-2">
+                <ButtonStyle type="button" onClick={handleSearch}>
+                  <p className="m-0 px-2">Buscar</p>
+                  {/* <BsSearch color="white" className="m-0 px-2" /> */}
+                </ButtonStyle>
+                <ButtonStyle type="button" onClick={clearSearch}>
+                  <p className="m-0 px-2">Voltar</p>
+                  {/* <BsSearch color="white" className="m-0 px-2" /> */}
+                </ButtonStyle>
+              </div>
             </Col>
           </Row>
           <Row>
             <Col>
-              <TitleH1 className="p-3">Characters</TitleH1>
+              <TitleH1 className="p-3 pt-5">Characters</TitleH1>
             </Col>
           </Row>
           <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 justify-content-center">
