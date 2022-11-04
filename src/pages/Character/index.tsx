@@ -1,6 +1,6 @@
 import { memo, useEffect } from 'react'
 
-import { Col, Container, Row, Spinner } from 'react-bootstrap'
+import { Breadcrumb, Col, Container, Row, Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 
 import { useCharacters } from 'context/CharactersContext'
@@ -12,7 +12,7 @@ import { getImageUrl } from 'helpers'
 
 import useTitle from 'hooks/useTitle'
 
-import { MainStyle } from 'styles/Main'
+import { BreadccrumbStyled, MainStyle } from 'styles/Main'
 
 import {
   BlurDiv,
@@ -29,7 +29,7 @@ const Character: React.FC = () => {
   const { id } = useParams()
 
   const setTitle = useTitle()
-  useEffect(() => setTitle(`${character?.name}`))
+  useEffect(() => setTitle(`${character?.name} | Characters`))
 
   useEffect(() => {
     if (id) fetchCharacter(id)
@@ -50,8 +50,8 @@ const Character: React.FC = () => {
                 backgroundImage: `url(${getImageUrl(character.thumbnail)})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center center',
-                height: '50vh',
+                backgroundPosition: 'start center',
+                height: '30vh',
               }}
             >
               <BlurDiv className="d-flex align-items-end" />
@@ -74,6 +74,13 @@ const Character: React.FC = () => {
                   </DivRatio>
                 </Col>
                 <Col className="pt-4">
+                  <BreadccrumbStyled>
+                    <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/characters">
+                      Characters
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item active>{character.name}</Breadcrumb.Item>
+                  </BreadccrumbStyled>
                   {character?.name && (
                     <H1White className="d-flex align-self-center">
                       {character.name}

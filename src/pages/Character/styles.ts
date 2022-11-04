@@ -14,7 +14,7 @@ export const BlurDiv = styled.div`
   width: 100%;
   border-style: none none solid none;
   border-color: #fa2d01;
-  background-color: rgba(6, 6, 6, 0.9);
+  background-color: rgba(6, 6, 6, 0.5);
   flex: flex;
 `
 

@@ -57,3 +57,16 @@ export const ColCards = styled(Col)`
   flex: flex;
   justify-content: center;
 `
+export const BlackSignatureDiv = styled.div`
+  background-color: black;
+  flex: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+  p {
+    margin: 0px;
+    text-align: center;
+  }
+`

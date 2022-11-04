@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import Logo from 'assets/marvel-logo.png'
 
 import {
+  BlackSignatureDiv,
   Buttonmail,
   ColCards,
   EmailDiv,
@@ -17,8 +18,8 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <StyleFooter className="py-3 py-md-5">
-      <Container>
+    <StyleFooter>
+      <Container className="py-3 py-md-5">
         <Row className="row-cols-1 row-cols-md-3 row-cols-lg-4 justify-content-center justify-content-lg-between align-items-center">
           <ColCards>
             <div className="d-flex justify-content-center py-3 py-md-0">
@@ -81,6 +82,16 @@ const Footer: React.FC = () => {
           </ColCards>
         </Row>
       </Container>
+      <BlackSignatureDiv className="d-flex">
+        <p className="me-2">Site by:</p>
+        <a
+          href="https://www.linkedin.com/in/guimattos91/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Guilherme Mattos
+        </a>
+      </BlackSignatureDiv>
     </StyleFooter>
   )
 }

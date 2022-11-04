@@ -39,7 +39,7 @@ export const ButtonStyle = styled.button`
   border: none;
   color: white;
   flex: flex;
-  padding: 2px 15px;
+  padding: 0px 15px;
   clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
 `
 export const ButtonBack = styled.button`

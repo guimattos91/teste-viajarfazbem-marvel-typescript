@@ -1,6 +1,6 @@
 import { memo, useEffect } from 'react'
 
-import { Col, Container, Row, Spinner } from 'react-bootstrap'
+import { Breadcrumb, Col, Container, Row, Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 
 import { useComics } from 'context/ComicsContext'
@@ -12,21 +12,16 @@ import { getImageUrl } from 'helpers'
 
 import useTitle from 'hooks/useTitle'
 
-import {
-  BlurDiv,
-  H1White,
-  ImgStyled,
-  MainBlack,
-  PStyled,
-  PStyleLarger,
-} from './styles'
+import { BreadccrumbStyled } from 'styles/Main'
+
+import { BlurDiv, H1White, MainBlack, PStyled, PStyleLarger } from './styles'
 
 const Comic: React.FC = () => {
   const { comic, isLoading, fetchComic } = useComics()
   const { id } = useParams()
 
   const setTitle = useTitle()
-  useEffect(() => setTitle(`${comic?.title}`))
+  useEffect(() => setTitle(`${comic?.title} | Comics`))
 
   useEffect(() => {
     fetchComic(Number(id))
@@ -57,15 +52,21 @@ const Comic: React.FC = () => {
           >
             <BlurDiv>
               <Container>
-                <Row className="pt-5">
+                <Row className="pt-5 row-cols-1 row-cols-md-2">
                   <Col>
-                    <ImgStyled
+                    <img
                       src={getImageUrl(comic.thumbnail)}
                       alt={comic?.title}
+                      className="img-fluid"
                     />
                     <PStyled>ID: {comic.id}</PStyled>
                   </Col>
                   <Col className="col-8">
+                    <BreadccrumbStyled>
+                      <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                      <Breadcrumb.Item href="/comic">Comics</Breadcrumb.Item>
+                      <Breadcrumb.Item active>{comic.title}</Breadcrumb.Item>
+                    </BreadccrumbStyled>
                     <H1White>{comic?.title ?? 'Loading...'}</H1White>
                     {comic.description && (
                       <PStyleLarger className="pt-5">

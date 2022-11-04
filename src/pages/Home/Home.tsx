@@ -72,12 +72,12 @@ const Home: React.FC = () => {
           </Row>
           <Row className="row-cols-1 row-cols-md-3 row-cols-lg-4 g-3">
             {isLoading && (
-              <div className="text-center">
-                <Spinner animation="border" variant="success" />
+              <div className="text-center d-flex py-4 justify-content-center">
+                <Spinner animation="border" variant="danger" />
               </div>
             )}
             {!isLoading &&
-              characters.map((character) => (
+              characters.slice(0, 4).map((character) => (
                 <Col key={character.id} className="d-flex">
                   <CharacterCard character={character} />
                 </Col>

@@ -1,7 +1,6 @@
 import { memo, useCallback, useEffect, useState } from 'react'
 
-import { Col, Container, Row, Spinner } from 'react-bootstrap'
-import { BsSearch } from 'react-icons/bs'
+import { Breadcrumb, Col, Container, Row, Spinner } from 'react-bootstrap'
 
 import Jarvis from 'assets/jarvis3.png'
 
@@ -13,7 +12,7 @@ import Header from 'components/Header'
 
 import useTitle from 'hooks/useTitle'
 
-import { MainStyle } from 'styles/Main'
+import { BreadccrumbStyled, MainStyle } from 'styles/Main'
 import { Pagination } from 'styles/Pagination'
 
 import {
@@ -43,7 +42,10 @@ const Comics: React.FC = () => {
     () => fetchComics(1, search),
     [fetchComics, search],
   )
-  const clearSearch = useCallback(() => fetchComics(1), [fetchComics])
+  const clearSearch = useCallback(() => {
+    fetchComics(1)
+    setSearch('')
+  }, [fetchComics])
 
   useEffect(() => {
     fetchComics(1)
@@ -55,6 +57,10 @@ const Comics: React.FC = () => {
       <Header />
       <MainStyle>
         <Container>
+          <BreadccrumbStyled>
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            <Breadcrumb.Item active>Comics</Breadcrumb.Item>
+          </BreadccrumbStyled>
           <Row className="pt-4">
             <Col className="d-flex justify-content-center">
               <InputStyle
@@ -63,9 +69,16 @@ const Comics: React.FC = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <ButtonStyle type="button" onClick={handleSearch}>
-                <BsSearch color="#fa2d01" />
-              </ButtonStyle>
+              <div className="my-4 my-md-2">
+                <ButtonStyle type="button" onClick={handleSearch}>
+                  <p className="m-0 px-2">Buscar</p>
+                </ButtonStyle>
+                {search.length > 0 && (
+                  <ButtonStyle type="button" onClick={clearSearch}>
+                    <p className="m-0 px-2">Limpar</p>
+                  </ButtonStyle>
+                )}
+              </div>
             </Col>
           </Row>
           <Row>

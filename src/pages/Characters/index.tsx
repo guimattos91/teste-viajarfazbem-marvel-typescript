@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useState } from 'react'
 
 // eslint-disable-next-line import-helpers/order-imports
-import { Col, Container, Row, Spinner } from 'react-bootstrap'
+import { Breadcrumb, Col, Container, Row, Spinner } from 'react-bootstrap'
 
 // import { BsSearch } from 'react-icons/bs'
 
@@ -15,7 +15,7 @@ import Header from 'components/Header'
 
 import useTitle from 'hooks/useTitle'
 
-import { MainStyle } from 'styles/Main'
+import { BreadccrumbStyled, MainStyle } from 'styles/Main'
 import { Pagination } from 'styles/Pagination'
 
 import {
@@ -49,26 +49,33 @@ const CharactersPage: React.FC = () => {
     [fetchCharacters],
   )
 
+  useEffect(() => {
+    fetchCharacters(1)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const handleSearch = useCallback(
     () => fetchCharacters(1, search),
     [fetchCharacters, search],
   )
 
-  const clearSearch = useCallback(() => fetchCharacters(1), [fetchCharacters])
+  const clearSearch = useCallback(() => {
+    setSearch('')
+    fetchCharacters(1)
+  }, [fetchCharacters])
 
   const setTitle = useTitle()
   useEffect(() => setTitle('Characters'))
-
-  useEffect(() => {
-    fetchCharacters(1)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   return (
     <>
       <Header />
       <MainStyle>
         <Container>
+          <BreadccrumbStyled>
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            <Breadcrumb.Item active>Characters</Breadcrumb.Item>
+          </BreadccrumbStyled>
           <Row className="pt-4">
             <Col className="d-flex justify-content-center flex-wrap">
               <InputStyle
@@ -80,12 +87,12 @@ const CharactersPage: React.FC = () => {
               <div className="my-4 my-md-2">
                 <ButtonStyle type="button" onClick={handleSearch}>
                   <p className="m-0 px-2">Buscar</p>
-                  {/* <BsSearch color="white" className="m-0 px-2" /> */}
                 </ButtonStyle>
-                <ButtonStyle type="button" onClick={clearSearch}>
-                  <p className="m-0 px-2">Voltar</p>
-                  {/* <BsSearch color="white" className="m-0 px-2" /> */}
-                </ButtonStyle>
+                {search.length > 0 && (
+                  <ButtonStyle type="button" onClick={clearSearch}>
+                    <p className="m-0 px-2">Limpar</p>
+                  </ButtonStyle>
+                )}
               </div>
             </Col>
           </Row>
@@ -144,7 +151,7 @@ const CharactersPage: React.FC = () => {
                   forcePage={currentPage - 1}
                   onPageChange={(p) => handlePageChange(p.selected + 1)}
                   pageCount={totalPages}
-                  previousLabel="Previous"
+                  previousLabel={currentPage > 1 && 'Previous'}
                   pageRangeDisplayed={3}
                   marginPagesDisplayed={1}
                 />

@@ -6,7 +6,7 @@ export const Pagination = styled(ReactPaginate)`
   justify-content: center;
   flex-wrap: wrap;
 
-  li {
+  & > li {
     list-style: none;
     color: #ffffff;
 
