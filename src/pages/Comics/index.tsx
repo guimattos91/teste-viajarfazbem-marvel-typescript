@@ -127,10 +127,14 @@ const Comics: React.FC = () => {
                 <Pagination
                   className="d-flex justify-content-center px-3 text-decoration-none"
                   nextLabel="Next"
+                  nextClassName={
+                    currentPage === Math.ceil(totalPages) ? 'd-none' : undefined
+                  }
                   forcePage={currentPage - 1}
                   onPageChange={(p) => handlePageChange(p.selected + 1)}
                   pageCount={totalPages}
                   previousLabel="Previous"
+                  previousClassName={currentPage === 1 ? 'd-none' : undefined}
                   pageRangeDisplayed={3}
                   marginPagesDisplayed={1}
                 />

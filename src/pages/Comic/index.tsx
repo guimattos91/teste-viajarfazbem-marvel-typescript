@@ -47,13 +47,12 @@ const Comic: React.FC = () => {
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center center',
-              height: '100vh',
             }}
           >
             <BlurDiv>
               <Container>
                 <Row className="pt-5 row-cols-1 row-cols-md-2">
-                  <Col>
+                  <Col xs={12} lg={6}>
                     <img
                       src={getImageUrl(comic.thumbnail)}
                       alt={comic?.title}
@@ -61,23 +60,30 @@ const Comic: React.FC = () => {
                     />
                     <PStyled>ID: {comic.id}</PStyled>
                   </Col>
-                  <Col className="col-8">
-                    <BreadccrumbStyled>
-                      <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                      <Breadcrumb.Item href="/comic">Comics</Breadcrumb.Item>
-                      <Breadcrumb.Item active>{comic.title}</Breadcrumb.Item>
-                    </BreadccrumbStyled>
-                    <H1White>{comic?.title ?? 'Loading...'}</H1White>
-                    {comic.description && (
-                      <PStyleLarger className="pt-5">
-                        {comic.description}
-                      </PStyleLarger>
-                    )}
-                    {!comic.description && (
-                      <PStyleLarger className="pt-5">
-                        Theres is no description for this comic book
-                      </PStyleLarger>
-                    )}
+                  <Col xs={12} lg={6}>
+                    <div className="h-auto">
+                      <BreadccrumbStyled>
+                        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                        <Breadcrumb.Item href="/comic">Comics</Breadcrumb.Item>
+                        <Breadcrumb.Item active>{comic.title}</Breadcrumb.Item>
+                      </BreadccrumbStyled>
+                      {comic.title && <H1White>{comic.title}</H1White>}
+                      {!comic.title && (
+                        <H1White>
+                          Theres is no title for this comic book
+                        </H1White>
+                      )}
+                      {comic.description && (
+                        <PStyleLarger className="mt-4">
+                          {comic.description}
+                        </PStyleLarger>
+                      )}
+                      {!comic.description && (
+                        <PStyleLarger className="mt-4">
+                          Theres is no description for this comic book
+                        </PStyleLarger>
+                      )}
+                    </div>
                   </Col>
                 </Row>
               </Container>

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const BlurDiv = styled.div`
   backdrop-filter: blur(10px);
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: rgba(6, 6, 6, 0.7);
 `

@@ -77,11 +77,17 @@ const Home: React.FC = () => {
               </div>
             )}
             {!isLoading &&
-              characters.slice(0, 4).map((character) => (
+              characters.map((character) => (
                 <Col key={character.id} className="d-flex">
                   <CharacterCard character={character} />
                 </Col>
               ))}
+            {/* {!isLoading &&
+              characters.map((character) => (
+                <Col key={character.id} className="d-flex">
+                  <CharacterCard character={character} />
+                </Col>
+              ))} */}
           </Row>
         </Container>
       </MainStyle>
