@@ -11,6 +11,8 @@ import CharacterCard from 'components/CharacterCard'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 
+import useTitle from 'hooks/useTitle'
+
 import Api from 'services/Api'
 
 import { MainStyle } from 'styles/Main'
@@ -20,6 +22,8 @@ import { CharacterType } from 'types/CharacterType'
 const Home: React.FC = () => {
   const [characters, setCharacters] = useState<CharacterType[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const setTitle = useTitle()
+  useEffect(() => setTitle('Home'))
 
   const fetchCharacters = useCallback(async () => {
     try {
