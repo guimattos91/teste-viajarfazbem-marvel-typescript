@@ -2,7 +2,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
   useState,
 } from 'react'
@@ -79,15 +78,6 @@ export const ComicsProvider: React.FC<ICComicsProviderProps> = ({
     } finally {
       setIsLoading(false)
     }
-  }, [])
-  useEffect(() => {
-    fetchComic(1)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  useEffect(() => {
-    fetchComics(1)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

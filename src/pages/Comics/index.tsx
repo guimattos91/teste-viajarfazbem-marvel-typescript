@@ -23,6 +23,11 @@ const Comics: React.FC = () => {
   const { comics, isLoading, totalPages, currentPage, error, fetchComics } =
     useComics()
 
+  const handlePageChange = useCallback(
+    (page: number) => fetchComics(page),
+    [fetchComics],
+  )
+
   useEffect(() => {
     fetchComics(1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -30,12 +35,6 @@ const Comics: React.FC = () => {
 
   const setTitle = useTitle()
   useEffect(() => setTitle('Comics'))
-
-  const handlePageChange = useCallback(
-    (page: number) => fetchComics(page),
-    [fetchComics],
-  )
-
   return (
     <>
       <Header />
