@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
           </ColCards>
         </Row>
       </Container>
-      <BlackSignatureDiv className="d-flex">
+      <BlackSignatureDiv className="d-flex py-2">
         <p className="me-2">Site by:</p>
         <a
           href="https://www.linkedin.com/in/guimattos91/"

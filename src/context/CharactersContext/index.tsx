@@ -2,7 +2,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
   useState,
 } from 'react'
@@ -75,11 +74,6 @@ export const CharactersProvider: React.FC<ICharactersProviderProps> = ({
     } finally {
       setIsLoading(false)
     }
-  }, [])
-
-  useEffect(() => {
-    fetchCharacter(1)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

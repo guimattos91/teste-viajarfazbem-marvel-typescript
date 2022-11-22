@@ -40,13 +40,18 @@ export const ButtonBack = styled.button`
   border: none;
   text-align: center;
 `
-export const StyledP = styled.p`
+export const StyledLink = styled.a`
   font-family: 'Bebas Neue', cursive;
+  text-decoration: none;
   color: white;
   text-align: center;
   font-size: 18px;
   padding: 0;
   margin: 0;
+
+  :hover {
+    color: white;
+  }
 `
 export const TitleH1 = styled.h1`
   font-family: 'Bebas Neue', cursive;

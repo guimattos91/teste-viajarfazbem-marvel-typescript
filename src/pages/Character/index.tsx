@@ -1,7 +1,7 @@
 import { memo, useEffect } from 'react'
 
 import { Breadcrumb, Col, Container, Row, Spinner } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { useCharacters } from 'context/CharactersContext'
 
@@ -75,10 +75,10 @@ const Character: React.FC = () => {
                 </Col>
                 <Col className="pt-4">
                   <BreadccrumbStyled>
-                    <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                    <Breadcrumb.Item href="/characters">
-                      Characters
-                    </Breadcrumb.Item>
+                    <Link to="/">Home</Link>
+                    <p className="text-white px-2">/</p>
+                    <Link to="/characters">Characters</Link>
+                    <p className="text-white px-2">/</p>
                     <Breadcrumb.Item active>{character.name}</Breadcrumb.Item>
                   </BreadccrumbStyled>
                   {character?.name && (

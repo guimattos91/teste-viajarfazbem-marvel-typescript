@@ -1,7 +1,7 @@
 import { memo, useEffect } from 'react'
 
 import { Breadcrumb, Col, Container, Row, Spinner } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { useComics } from 'context/ComicsContext'
 
@@ -62,9 +62,11 @@ const Comic: React.FC = () => {
                   </Col>
                   <Col xs={12} lg={6}>
                     <div className="h-auto">
-                      <BreadccrumbStyled>
-                        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                        <Breadcrumb.Item href="/comic">Comics</Breadcrumb.Item>
+                      <BreadccrumbStyled className="pt-3">
+                        <Link to="/">Home</Link>
+                        <p className="text-white px-2">/</p>
+                        <Link to="/comics">Comics</Link>
+                        <p className="text-white px-2">/</p>
                         <Breadcrumb.Item active>{comic.title}</Breadcrumb.Item>
                       </BreadccrumbStyled>
                       {comic.title && <H1White>{comic.title}</H1White>}

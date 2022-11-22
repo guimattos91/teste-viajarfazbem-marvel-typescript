@@ -1,9 +1,11 @@
-import { memo, useCallback, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect } from 'react'
 
 // eslint-disable-next-line import-helpers/order-imports
 import { Breadcrumb, Col, Container, Row, Spinner } from 'react-bootstrap'
 
 // import { BsSearch } from 'react-icons/bs'
+
+import { Link } from 'react-router-dom'
 
 import Jarvis from 'assets/jarvis2.png'
 
@@ -12,6 +14,7 @@ import { useCharacters } from 'context/CharactersContext'
 import CharacterCard from 'components/CharacterCard'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
+import SearchComponent from 'components/SearchComponent'
 
 import useTitle from 'hooks/useTitle'
 
@@ -24,14 +27,7 @@ import {
   ThumbnailType,
 } from 'types/CharacterType'
 
-import {
-  ButtonBack,
-  ButtonStyle,
-  ColCards,
-  InputStyle,
-  StyledP,
-  TitleH1,
-} from './styles'
+import { ButtonBack, ColCards, StyledLink, TitleH1 } from './styles'
 
 const CharactersPage: React.FC = () => {
   const {
@@ -42,7 +38,7 @@ const CharactersPage: React.FC = () => {
     error,
     fetchCharacters,
   } = useCharacters()
-  const [search, setSearch] = useState('')
+  // const [search, setSearch] = useState('')
 
   const handlePageChange = useCallback(
     (page: number) => fetchCharacters(page),
@@ -54,16 +50,6 @@ const CharactersPage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const handleSearch = useCallback(
-    () => fetchCharacters(1, search),
-    [fetchCharacters, search],
-  )
-
-  const clearSearch = useCallback(() => {
-    setSearch('')
-    fetchCharacters(1)
-  }, [fetchCharacters])
-
   const setTitle = useTitle()
   useEffect(() => setTitle('Characters'))
 
@@ -72,28 +58,14 @@ const CharactersPage: React.FC = () => {
       <Header />
       <MainStyle>
         <Container>
-          <BreadccrumbStyled>
-            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+          <BreadccrumbStyled className="pt-3">
+            <Link to="/">Home</Link>
+            <p className="text-white px-2">/</p>
             <Breadcrumb.Item active>Characters</Breadcrumb.Item>
           </BreadccrumbStyled>
           <Row className="pt-4">
             <Col className="d-flex justify-content-center flex-wrap">
-              <InputStyle
-                type="text"
-                placeholder="Buscar"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <div className="my-4 my-md-2">
-                <ButtonStyle type="button" onClick={handleSearch}>
-                  <p className="m-0 px-2">Buscar</p>
-                </ButtonStyle>
-                {search.length > 0 && (
-                  <ButtonStyle type="button" onClick={clearSearch}>
-                    <p className="m-0 px-2">Limpar</p>
-                  </ButtonStyle>
-                )}
-              </div>
+              <SearchComponent fetchCategory={fetchCharacters} />
             </Col>
           </Row>
           <Row>
@@ -131,12 +103,10 @@ const CharactersPage: React.FC = () => {
                   style={{ width: `100%`, height: `auto` }}
                 />
                 <div className="d-flex flex-column align-items-center justify-content-center py-3">
-                  <ButtonBack
-                    className="mb-3"
-                    type="button"
-                    onClick={clearSearch}
-                  >
-                    <StyledP className="px-4 py-2">Voltar</StyledP>
+                  <ButtonBack className="mb-3" type="button">
+                    <StyledLink href="/characters" className="px-4 py-2">
+                      Voltar
+                    </StyledLink>
                   </ButtonBack>
                 </div>
               </>
