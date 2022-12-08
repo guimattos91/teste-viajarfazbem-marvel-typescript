@@ -8,9 +8,10 @@ export const PLink = styled(Link)`
 
   p {
     text-decoration: none;
-    padding: 5px;
-    font-family: 'Bebas Neue', cursive;
-    font-size: large;
+    padding: 0.5rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: white;
 
     &:hover {
       color: #fff;
@@ -18,63 +19,17 @@ export const PLink = styled(Link)`
   }
 `
 export const DivRatio = styled(Ratio)`
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 20%,
-    100% 80%,
-    80% 100%,
-    20% 100%,
-    0 100%,
-    0% 20%
-  );
+  border-style: none none solid none;
+  border-color: #fa2d01;
+  border-width: large;
 `
 
 export const CardBody = styled.div`
-  background-color: #fff;
-  border-style: solid none none none;
-  border-color: #fa2d01;
-  border-width: large;
+  background-color: black;
+
   flex: flex;
   align-items: center;
   padding-bottom: 20px;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 20%,
-    100% 60%,
-    80% 100%,
-    20% 100%,
-    0 100%,
-    0% 20%
-  );
-
-  &:hover {
-    background-color: #fa2d01;
-    color: #fff;
-    transition: transform 1s linear;
-  }
-`
-export const Cardlov = styled.div`
-  background-color: #fff;
-  border-style: solid none none none;
-  border-color: #fa2d01;
-  border-width: large;
-  flex: flex;
-  align-items: center;
-  padding-bottom: 20px;
-
-  ::after {
-    content: '';
-    width: 4px;
-    height: 4px;
-    border-style: solid;
-    border-width: 0 0 20px 20px;
-    border-color: transparent transparent #060606 transparent;
-    z-index: 40;
-    float: right;
-    clear: both;
-  }
 
   &:hover {
     background-color: #fa2d01;

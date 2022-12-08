@@ -1,8 +1,21 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const GrayLines = styled.div`
+export const LinkStyled = styled(Link)`
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: white;
+  :hover {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: red;
+  }
+`
+export const NavBarStyled = styled.nav`
   flex: flex;
-  border-style: solid none solid none;
-  border-color: #9e9e9e;
-  border-width: thin;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
 `

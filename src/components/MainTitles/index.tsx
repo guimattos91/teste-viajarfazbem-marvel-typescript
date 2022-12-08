@@ -4,14 +4,13 @@ import { memo } from 'react'
 
 import { TitleH2 } from './styles'
 
-const Maintitle: React.FC = () => {
-  // const character = useState<CharacterType | null>(null);
-  return (
-    <div className="pt-4 d-flex flex-column align-items-center">
-      <TitleH2 className="pt-4">name</TitleH2>
-      <div className="pt-3" />
-    </div>
-  )
+interface ITitleProps {
+  title: string
+  color: string
+}
+
+const Maintitle: React.FC<ITitleProps> = ({ title, color }) => {
+  return <TitleH2 color={color}>{title}</TitleH2>
 }
 
 export default memo(Maintitle)

@@ -8,26 +8,23 @@ export const Pagination = styled(ReactPaginate)`
 
   & > li {
     list-style: none;
-    color: #ffffff;
+    color: #9b9b9b;
 
     a {
       display: inline-block;
       border: none;
       padding: 10px 20px;
-      border-radius: 3px;
-      margin: 5px 5px;
-      color: #ffffff;
+      color: #9b9b9b;
       text-decoration: none;
-      background-color: #fa2d01;
     }
 
     &.selected a {
-      background-color: #151515;
+      background-color: #fa2d01;
       color: #ffffff;
       border: none;
 
       &:hover {
-        color: #fa2d01;
+        color: black;
       }
     }
   }

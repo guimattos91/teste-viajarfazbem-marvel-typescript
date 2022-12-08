@@ -1,28 +1,22 @@
 import { memo } from 'react'
 
-import { Link } from 'react-router-dom'
-
-import { GrayLines } from './styles'
+import { LinkStyled, NavBarStyled } from './styles'
 
 const NavHeader: React.FC = () => {
   return (
-    <GrayLines className="pb-2 pt-2">
-      <nav
-        className="d-flex align-items-center justify-content-center"
-        style={{
-          backgroundColor: `#151515`,
-          color: 'white',
-        }}
-      >
-        <Link to="/characters" className="text-decoration-none px-3 text-reset">
-          Characters
-        </Link>
+    <NavBarStyled>
+      <LinkStyled to="/characters">FILMES</LinkStyled>
 
-        <Link to="/comics" className=" text-decoration-none px-3 text-reset">
-          Comics
-        </Link>
-      </nav>
-    </GrayLines>
+      <LinkStyled to="/comics" className="px-3">
+        QUADRINHOS
+      </LinkStyled>
+
+      <LinkStyled to="/comics" className="px-3">
+        PROGRAMAS DE TV
+      </LinkStyled>
+
+      <LinkStyled to="/comics">JOGOS</LinkStyled>
+    </NavBarStyled>
   )
 }
 

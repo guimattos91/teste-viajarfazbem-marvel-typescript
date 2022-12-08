@@ -132,6 +132,26 @@ const CharactersPage: React.FC = () => {
               )}
             </Col>
           </Row>
+          <Row>
+            <Col>
+              {totalPages > 1 && (
+                <Pagination
+                  className="d-flex justify-content-center px-3 text-decoration-none"
+                  nextLabel="Next"
+                  nextClassName={
+                    currentPage === Math.ceil(totalPages) ? 'd-none' : undefined
+                  }
+                  forcePage={currentPage - 1}
+                  onPageChange={(p) => handlePageChange(p.selected + 1)}
+                  pageCount={totalPages}
+                  previousLabel={currentPage > 1 ? 'Previous' : null}
+                  previousClassName={currentPage === 1 ? 'd-none' : undefined}
+                  pageRangeDisplayed={3}
+                  marginPagesDisplayed={1}
+                />
+              )}
+            </Col>
+          </Row>
         </Container>
       </MainStyle>
       <Footer />
