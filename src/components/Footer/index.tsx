@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
               <UlStyled>
                 <li>
                   <Link
-                    to="/characters"
+                    to="/sobre-a-marvel"
                     className="text-decoration-none text-reset"
                   >
                     Sobre a Marvel
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/comics"
+                    to="/ajuda"
                     className="text-decoration-none text-reset text-center"
                   >
                     Ajuda
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/comics"
+                    to="/carreiras"
                     className="text-decoration-none text-reset text-center"
                   >
                     Carreiras
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
               <UlStyled>
                 <li>
                   <Link
-                    to="/characters"
+                    to="/filmes"
                     className="text-decoration-none text-reset"
                   >
                     Filmes
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/comics"
+                    to="/quadrinhos"
                     className="text-decoration-none text-reset text-center"
                   >
                     Quadrinhos
@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/comics"
+                    to="/programas-de-tv"
                     className="text-decoration-none text-reset text-center"
                   >
                     Programas de TV
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/comics"
+                    to="/jogos"
                     className="text-decoration-none text-reset text-center"
                   >
                     Jogos

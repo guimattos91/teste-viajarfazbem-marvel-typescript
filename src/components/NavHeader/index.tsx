@@ -7,16 +7,16 @@ const NavHeader: React.FC = () => {
     <NavBarStyled>
       <ul>
         <li>
-          <LinkStyled to="/characters">FILMES</LinkStyled>
+          <LinkStyled to="/filmes">FILMES</LinkStyled>
         </li>
         <li>
-          <LinkStyled to="/comics">QUADRINHOS</LinkStyled>
+          <LinkStyled to="/quadrinhos">QUADRINHOS</LinkStyled>
         </li>
         <li>
-          <LinkStyled to="/comics">PROGRAMAS DE TV</LinkStyled>
+          <LinkStyled to="/programas-de-tv">PROGRAMAS DE TV</LinkStyled>
         </li>
         <li>
-          <LinkStyled to="/comics">JOGOS</LinkStyled>
+          <LinkStyled to="/jogos">JOGOS</LinkStyled>
         </li>
       </ul>
     </NavBarStyled>

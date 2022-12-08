@@ -1,92 +1,31 @@
 # Vite + React + Typescript + Vitest + Eslint + Prettier + EditorConfig
 
-A starter for React with Typescript with the blazing fast Vite, strong Vitest framework and all static code testing with Eslint and formatting with Prettier and EditorConfig.
+Projeto teste para a Viajar Faz Bem.
 
-## Installation & run
+Alguns pontos:
 
-1. Install [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) extensions for VS Code. **Do not install the Prettier extension**
+- A página de favoritos não foi feita da forma que eu desejava,
+que seria fazendo um "fetch" de todos os personages e usando o filter para
+chamar aqueles que foram pedidos, porque a API não permitia chamar mais de
+100 personagens por vez
 
-2. Add these configs to VS Code settings:
+- O Projeto foi feito com o Typescript, superconjunto de JavaScript.
+Se for necessário posso refazer no JavaScript mesmo.
 
-```
-"[javascript]": {
-    "editor.defaultFormatter": null,
-},
-"editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": false
-},
-"editor.formatOnSave": false,
-"eslint.codeActionsOnSave.mode": "all",
-"eslint.packageManager": "yarn",
-"eslint.validate": [
-    "javascript",
-    "javascriptreact"
-],
-```
+- O framework escolhido foi o bootstrap e o ReactBootstrap
 
-3. Clone the repo and run:
+- Algumas funcionalidades importadas foram o react-slick e react-paginate
 
-```
-cp .env.example .env
-```
 
-```
-yarn
-```
+O que deve ser instalado para rodar o projeto:
+- yarn( ou correspondente)
+- yarn add styled-components
+- yarn add -D @types/styled-components
+- yarn add react-bootstrap bootstrap
+- yarn add slugify
+- yarn add react-paginate
+- yarn add -D @types/react-paginate
+- yarn add axios
 
-```
-yarn dev
-```
 
-## Test
-
-```
-yarn test
-```
-
-## Troubleshooting
-
-### Error: Cannot find module 'node:path'
-
-Solution: Use Node.js v16
-
----
-
-### Error: Command failed: node /path/to/project/node_modules/esbuild/bin/esbuild --version dyld: Symbol not found: \_SecTrustEvaluateWithError
-
-Solution:
-
-- Stop using `npm` or `yarn` for this project
-- Install [pnpm](https://pnpm.io)
-- Remove `node_modules`
-- Remove `yarn.lock` (if exists)
-- Remove `package-lock.json` (if exists)
-- Add the following to `package.json`
-
-```
-"devDependencies":
-    "esbuild-wasm":"latest",
-},
-"pnpm":{
-    "overrides":{
-        "esbuild":"npm:esbuild-wasm@latest"
-    }
-},
-```
-
-Download the dependencies:
-
-```
-pnpm i
-```
-
-Run the project:
-
-```
-pnpm run dev
-```
-
-## Credits
-
-This is a fork of [https://github.com/TheSwordBreaker/vite-reactts-eslint-prettier](https://github.com/TheSwordBreaker/vite-reactts-eslint-prettier)
+Qualquer dúvida, estou à disposição.
