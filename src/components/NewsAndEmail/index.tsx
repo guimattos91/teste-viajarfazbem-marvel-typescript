@@ -1,11 +1,11 @@
 import { memo } from 'react'
 
-import { Col, Container, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Col, Container } from 'react-bootstrap'
 
 import {
   Buttonmail,
   InputEmail,
+  RowStyled,
   StyledSection,
   TextOpenSans,
   TextOswald,
@@ -16,12 +16,16 @@ const NewsAndEmail: React.FC = () => {
   return (
     <StyledSection>
       <Container className="py-3 py-md-5">
-        <Row className="row-cols-1 row-cols-md-2 justify-content-center justify-content-lg-between align-items-center">
-          <Col className="py-3 py-md-0">
+        <RowStyled>
+          <Col xs={12} md={5}>
             <TitleBox>RECEBA AS NOVIDADES DA MARVEL</TitleBox>
           </Col>
 
-          <Col className="py-3 py-md-0">
+          <Col
+            xs={12}
+            md={7}
+            className="d-flex flex-column justify-content-center"
+          >
             <TextOswald>
               Cadastre-se para receber nossas notícias em primeira mão!
             </TextOswald>
@@ -40,7 +44,7 @@ const NewsAndEmail: React.FC = () => {
               </Buttonmail>
             </div>
           </Col>
-        </Row>
+        </RowStyled>
       </Container>
     </StyledSection>
   )

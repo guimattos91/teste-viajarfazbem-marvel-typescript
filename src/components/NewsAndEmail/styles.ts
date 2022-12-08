@@ -1,3 +1,4 @@
+import { Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
 export const EmailDiv = styled.div`
@@ -12,6 +13,13 @@ export const EmailDiv = styled.div`
 
   &:hover {
     border-color: #fa2d01;
+  }
+`
+export const RowStyled = styled(Row)`
+  flex: flex;
+  justify-content: space-around;
+  @media (max-width: 768px) {
+    justify-content: center;
   }
 `
 
@@ -31,10 +39,19 @@ export const InputEmail = styled.input`
   border-style: none;
   padding-left: 1rem;
   width: 100%;
+  :focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    border-bottom: 2px solid red;
+    outline: 0;
+  }
 `
 export const TextOswald = styled.p`
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
 `
 export const TextOpenSans = styled.p`
   font-family: 'Open Sans', sans-serif;
@@ -48,7 +65,13 @@ export const TitleBox = styled.h2`
   padding: 0;
   margin: 0;
   background-color: red;
-  padding: 5rem;
+  padding: 4rem;
+  margin-top: -7rem;
+
+  @media (max-width: 768px) {
+    margin-top: -4rem;
+    padding: 3rem;
+  }
 `
 
 export const StyledSection = styled.section`

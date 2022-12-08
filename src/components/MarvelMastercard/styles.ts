@@ -37,5 +37,5 @@ export const MarvelMastercardStyled = styled.section`
   justify-content: center;
   text-align: center;
   margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 `

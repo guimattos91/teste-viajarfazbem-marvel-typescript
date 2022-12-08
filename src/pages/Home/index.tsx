@@ -2,7 +2,7 @@ import { memo, useCallback, useEffect } from 'react'
 
 import { Col, Container, Row, Spinner } from 'react-bootstrap'
 
-import BannerImage from 'assets/banner.jpg'
+import Jarvis from 'assets/jarvis2.png'
 
 import { useCharacters } from 'context/CharactersContext'
 
@@ -10,16 +10,24 @@ import CharacterCard from 'components/CharacterCard'
 import FavoriteCharacters from 'components/FavoriteCharacters'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
+import MainBanner from 'components/MainBanner'
 import MainTitles from 'components/MainTitles'
 import MarvelMastercard from 'components/MarvelMastercard'
 import NewsAndEmail from 'components/NewsAndEmail'
+import SearchComponent from 'components/SearchComponent'
 
 import { MainStyle } from 'styles/Main'
 import { Pagination } from 'styles/Pagination'
 
 const Home: React.FC = () => {
-  const { characters, isLoading, totalPages, currentPage, fetchCharacters } =
-    useCharacters()
+  const {
+    characters,
+    error,
+    isLoading,
+    totalPages,
+    currentPage,
+    fetchCharacters,
+  } = useCharacters()
 
   const handlePageChange = useCallback(
     (page: number) => fetchCharacters(page),
@@ -35,14 +43,11 @@ const Home: React.FC = () => {
     <>
       <Header />
       <MainStyle>
-        <img
-          src={BannerImage}
-          alt="BannerImage"
-          style={{ width: `100%`, height: `auto` }}
-        />
+        <MainBanner />
         <FavoriteCharacters />
         <Container>
           <MainTitles title="LISTA DE PERSONAGENS DA MARVEL" color="black" />
+          <SearchComponent fetchCategory={fetchCharacters} />
           <Row className="row-cols-1 row-cols-md-3 row-cols-lg-6 g-3">
             {isLoading && (
               <div className="text-center">
@@ -55,6 +60,13 @@ const Home: React.FC = () => {
                   <CharacterCard character={character} />
                 </Col>
               ))}
+            {!isLoading && !error && characters.length === 0 && (
+              <img
+                src={Jarvis}
+                alt="Personagem Não Encontrado"
+                style={{ width: `100%`, height: `auto` }}
+              />
+            )}
           </Row>
           <Row>
             <Col>

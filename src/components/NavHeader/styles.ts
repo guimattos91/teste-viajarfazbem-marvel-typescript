@@ -6,6 +6,7 @@ export const LinkStyled = styled(Link)`
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   color: white;
+
   :hover {
     color: white;
     text-decoration: underline;
@@ -18,4 +19,21 @@ export const NavBarStyled = styled.nav`
   justify-content: flex-end;
   padding: 0;
   margin: 0;
+
+  ul {
+    flex: flex;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding-left: 0.75rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `

@@ -1,12 +1,11 @@
-import { Ratio } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const InputStyle = styled.input`
   border: none;
   border-bottom: 2px solid red;
   background-color: transparent;
-  color: #fff;
+  color: black;
+
   :focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
@@ -20,13 +19,18 @@ export const ButtonStyle = styled.button`
   color: white;
   flex: flex;
   padding: 2px 15px;
-  clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+  margin-right: 0.5rem;
 `
 
+export const DivStyled = styled.div`
+  flex: flex;
+  display: flex;
+  flex-wrap: wrap;
+`
 export const PStyled = styled.p`
   text-decoration: none;
   padding: 25px 50px 75px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: large;
   padding-bottom: 50px;
   background-color: #fff;

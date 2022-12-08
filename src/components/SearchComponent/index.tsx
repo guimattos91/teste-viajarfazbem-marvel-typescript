@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react'
 
-import { ButtonStyle, InputStyle } from './styles'
+import { ButtonStyle, DivStyled, InputStyle } from './styles'
 
 interface ISearchProps {
   fetchCategory: (page: number, search?: string | undefined) => Promise<void>
@@ -22,7 +22,7 @@ const SearchComponent: React.FC<ISearchProps> = ({ fetchCategory }) => {
   }, [fetchCategory, setHasSearch])
 
   return (
-    <>
+    <DivStyled>
       <InputStyle
         type="text"
         placeholder="Buscar"
@@ -41,7 +41,7 @@ const SearchComponent: React.FC<ISearchProps> = ({ fetchCategory }) => {
           </ButtonStyle>
         )}
       </div>
-    </>
+    </DivStyled>
   )
 }
 

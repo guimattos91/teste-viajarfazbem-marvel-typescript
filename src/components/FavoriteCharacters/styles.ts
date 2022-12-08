@@ -25,6 +25,7 @@ export const StyledSection = styled.section`
   color: white;
   flex: flex;
   flex-wrap: wrap;
+  padding-bottom: 5em;
 
   @media (max-width: 576px) {
     text-align: center;

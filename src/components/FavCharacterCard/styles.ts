@@ -21,14 +21,6 @@ export const PLink = styled(Link)`
 
 export const CardBody = styled.div`
   background-color: black;
-
-  &:hover {
-    background-color: #fa2d01;
-    color: #fff;
-    border-color: #fa2d01;
-    border-style: none none solid none;
-    transition: transform 1s linear;
-  }
 `
 export const GradientDiv = styled.div`
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
@@ -36,6 +28,9 @@ export const GradientDiv = styled.div`
 export const DivRatio = styled(Ratio)`
   display: flex;
   flex: flex;
+  border-color: #fa2d01;
+  border-style: none none solid none;
+  transition: transform 1s linear;
 `
 
 export const NameStyled = styled.p`

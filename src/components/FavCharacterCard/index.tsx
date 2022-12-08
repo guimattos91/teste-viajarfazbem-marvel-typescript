@@ -1,47 +1,34 @@
-import { memo, useEffect } from 'react'
-
-import { Spinner } from 'react-bootstrap'
-
-import { useCharacters } from 'context/CharactersContext'
-
-import { getImageUrl, strToSlug } from 'helpers'
+import { memo } from 'react'
 
 import { CardBody, DivRatio, GradientDiv, NameStyled, PLink } from './styles'
 
-interface ICharactersProps {
-  id: number
+interface IFavoriteCharactersProps {
+  imageUrl: string
+  name: string
+  linkUrl: string
 }
 
-const FavCharacterCard: React.FC<ICharactersProps> = ({ id }) => {
-  const { character, isLoading, error, fetchCharacter } = useCharacters()
-  useEffect(() => {
-    fetchCharacter(id)
-  }, [fetchCharacter, id])
-
+const FavCharacterCard: React.FC<IFavoriteCharactersProps> = ({
+  imageUrl,
+  name,
+  linkUrl,
+}) => {
   return (
     <CardBody style={{ width: '100% ' }}>
-      {isLoading && (
-        <div className="text-center">
-          <Spinner animation="border" variant="danger" />
-        </div>
-      )}
-
-      {!isLoading && !error && character && (
-        <PLink to={`/characters/${character.id}/${strToSlug(character.name)}`}>
-          <DivRatio
-            aspectRatio="1x1"
-            style={{
-              backgroundImage: `url(${getImageUrl(character.thumbnail)})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center center',
-            }}
-          >
-            <GradientDiv />
-          </DivRatio>
-          <NameStyled className="pt-3">{character.name}</NameStyled>
-        </PLink>
-      )}
+      <DivRatio
+        aspectRatio="1x1"
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+        }}
+      >
+        <GradientDiv />
+      </DivRatio>
+      <PLink to={linkUrl}>
+        <NameStyled className="pt-3">{name}</NameStyled>
+      </PLink>
     </CardBody>
   )
 }

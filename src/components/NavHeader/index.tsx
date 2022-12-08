@@ -5,17 +5,20 @@ import { LinkStyled, NavBarStyled } from './styles'
 const NavHeader: React.FC = () => {
   return (
     <NavBarStyled>
-      <LinkStyled to="/characters">FILMES</LinkStyled>
-
-      <LinkStyled to="/comics" className="px-3">
-        QUADRINHOS
-      </LinkStyled>
-
-      <LinkStyled to="/comics" className="px-3">
-        PROGRAMAS DE TV
-      </LinkStyled>
-
-      <LinkStyled to="/comics">JOGOS</LinkStyled>
+      <ul>
+        <li>
+          <LinkStyled to="/characters">FILMES</LinkStyled>
+        </li>
+        <li>
+          <LinkStyled to="/comics">QUADRINHOS</LinkStyled>
+        </li>
+        <li>
+          <LinkStyled to="/comics">PROGRAMAS DE TV</LinkStyled>
+        </li>
+        <li>
+          <LinkStyled to="/comics">JOGOS</LinkStyled>
+        </li>
+      </ul>
     </NavBarStyled>
   )
 }

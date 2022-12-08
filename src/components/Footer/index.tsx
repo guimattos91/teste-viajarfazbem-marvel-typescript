@@ -9,11 +9,16 @@ import SpotifyIcon from 'assets/icons/spotify.svg'
 import YoutubeIcon from 'assets/icons/youtube.svg'
 import Logo from 'assets/m-marvel.png'
 
+import KidsImage from '../../assets/kids.jpg'
 import {
   BlackSignatureDiv,
   ColCards,
   H2Styled,
+  LinkStyled,
+  NewsDiv,
+  RatioStyled,
   RowStyled,
+  SocialNav,
   StyleFooter,
   StyleNav,
   TextStyled,
@@ -24,13 +29,13 @@ const Footer: React.FC = () => {
   return (
     <StyleFooter>
       <Container className="py-5">
-        <RowStyled className="row-cols-1 row-cols-md-3 row-cols-lg-5">
-          <ColCards>
+        <RowStyled className="row-cols-1 row-cols-sm-3 row-cols-lg-5">
+          <ColCards xs={12} sm={4} md={4} lg={2}>
             <Link to="/">
               <img src={Logo} alt="logo" height="100" width="auto" />
             </Link>
           </ColCards>
-          <ColCards>
+          <ColCards xs={12} sm={4} md={4} lg={2}>
             <H2Styled>A Marvel</H2Styled>
             <StyleNav>
               <UlStyled>
@@ -61,7 +66,7 @@ const Footer: React.FC = () => {
               </UlStyled>
             </StyleNav>
           </ColCards>
-          <ColCards>
+          <ColCards xs={12} sm={4} md={4} lg={2}>
             <H2Styled>Media</H2Styled>
             <StyleNav>
               <UlStyled>
@@ -100,22 +105,34 @@ const Footer: React.FC = () => {
               </UlStyled>
             </StyleNav>
           </ColCards>
-          <ColCards>
+          <ColCards xs={12} sm={6} md={6} lg={4}>
             <H2Styled>Última do blog</H2Styled>
-            <div className="d-flex">
+            <NewsDiv className="d-flex">
+              <RatioStyled
+                aspectRatio="1x1"
+                style={{
+                  backgroundImage: `url(${KidsImage})`,
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center center',
+                }}
+              >
+                <div />
+              </RatioStyled>
               <TextStyled>
                 Captain Marvel Challenge invadiu o tapete vermelho do Oscar
               </TextStyled>
-            </div>
+            </NewsDiv>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <LinkStyled href="#">Continuar lendo</LinkStyled>
           </ColCards>
-          <ColCards>
+          <ColCards xs={12} sm={6} md={6} lg={2}>
             <H2Styled>Follow Us:</H2Styled>
-            <nav>
+            <SocialNav>
               <a
                 href="https://www.facebook.com/Marvel/"
                 target="_blank"
                 rel="noreferrer"
-                className="pe-2"
               >
                 <img src={FacebookIcon} alt="logo" />
               </a>
@@ -123,7 +140,6 @@ const Footer: React.FC = () => {
                 href="https://open.spotify.com/user/marvel_music_?si=i-uXyMx6T6eiCzhZqQtl9w&nd=1"
                 target="_blank"
                 rel="noreferrer"
-                className="px-2"
               >
                 <img src={SpotifyIcon} alt="logo" />
               </a>
@@ -131,7 +147,6 @@ const Footer: React.FC = () => {
                 href="https://www.instagram.com/marvel/"
                 target="_blank"
                 rel="noreferrer"
-                className="px-2"
               >
                 <img src={InstagramIcon} alt="logo" />
               </a>
@@ -139,11 +154,10 @@ const Footer: React.FC = () => {
                 href="https://www.youtube.com/@marvelbr"
                 target="_blank"
                 rel="noreferrer"
-                className="px-2"
               >
                 <img src={YoutubeIcon} alt="logo" />
               </a>
-            </nav>
+            </SocialNav>
           </ColCards>
         </RowStyled>
       </Container>
